@@ -2,40 +2,17 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Yadavhun Ji | YouTube Creator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <!--
-  =====================================================
-  PREMIUM MALE INFLUENCER LANDING PAGE
-  =====================================================
-
-  HOW TO ADD YOUR REAL ASSETS:
-
-  1. Create a folder named:
-     assets
-
-  2. Put your images inside it.
-
-  3. Replace these image names with your own:
-
-     assets/hero.jpg
-     assets/photo1.jpg
-     assets/photo2.jpg
-     assets/photo3.jpg
-     assets/photo4.jpg
-     assets/about.jpg
-
-  4. You can also add videos later.
-
-  =====================================================
-  -->
+  <title>Yadavhun Ji | Creator</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
+
     *{
       margin:0;
       padding:0;
@@ -44,15 +21,10 @@
     }
 
     body{
+      background:#050505;
+      color:white;
       font-family:'Poppins',sans-serif;
-      background:#000;
-      color:#fff;
       overflow-x:hidden;
-    }
-
-    img{
-      width:100%;
-      display:block;
     }
 
     a{
@@ -60,22 +32,47 @@
       color:inherit;
     }
 
+    img{
+      width:100%;
+      display:block;
+    }
+
     section{
       padding:100px 8%;
+      position:relative;
     }
+
+    /* =========================
+       SCROLL BAR
+    ========================= */
+
+    #progress-bar{
+      position:fixed;
+      top:0;
+      left:0;
+      width:0%;
+      height:4px;
+      background:white;
+      z-index:999999;
+    }
+
+    /* =========================
+       NAVBAR
+    ========================= */
 
     .navbar{
       position:fixed;
       top:0;
       width:100%;
-      z-index:1000;
+      z-index:999;
+      padding:22px 8%;
       display:flex;
       justify-content:space-between;
       align-items:center;
-      padding:22px 8%;
-      background:rgba(0,0,0,0.55);
-      backdrop-filter:blur(10px);
-      border-bottom:1px solid rgba(255,255,255,0.08);
+      background:rgba(0,0,0,0.35);
+      backdrop-filter:blur(15px);
+      border-bottom:1px solid rgba(255,255,255,0.05);
+      transition:0.4s;
     }
 
     .logo{
@@ -91,89 +88,170 @@
     }
 
     .nav-links a{
-      color:#ccc;
+      color:#bbb;
       transition:0.3s;
-      font-size:0.95rem;
     }
 
     .nav-links a:hover{
-      color:#fff;
+      color:white;
     }
+
+    /* =========================
+       HERO
+    ========================= */
 
     .hero{
       min-height:100vh;
       display:flex;
       align-items:center;
+      justify-content:center;
+      text-align:center;
+      overflow:hidden;
       background:
-      linear-gradient(to right, rgba(0,0,0,0.95), rgba(0,0,0,0.45)),
-      url('assets/hero.jpg') center/cover no-repeat;
+      radial-gradient(circle at top left,#1b1b1b 0%,#050505 45%);
+    }
 
-      /*
-      =====================================
-      PUT MAIN HERO IMAGE HERE
-      =====================================
+    .hero::before{
+      content:'';
+      position:absolute;
+      width:700px;
+      height:700px;
+      border:1px solid rgba(255,255,255,0.06);
+      border-radius:50%;
+      animation:rotate 25s linear infinite;
+    }
 
-      Replace:
-      assets/hero.jpg
-
-      with your real hero image.
-      */
+    .hero::after{
+      content:'';
+      position:absolute;
+      width:450px;
+      height:450px;
+      border:1px solid rgba(255,255,255,0.05);
+      transform:rotate(45deg);
+      animation:rotateReverse 18s linear infinite;
     }
 
     .hero-content{
-      max-width:700px;
+      position:relative;
+      z-index:5;
+      max-width:900px;
       animation:fadeUp 1.2s ease;
     }
 
     .hero-tag{
       color:#aaa;
-      margin-bottom:20px;
       letter-spacing:5px;
-      font-size:0.9rem;
       text-transform:uppercase;
+      margin-bottom:25px;
+      font-size:0.9rem;
     }
 
     .hero h1{
-      font-size:6rem;
+      font-size:7rem;
       line-height:0.95;
-      margin-bottom:25px;
       text-transform:uppercase;
+      margin-bottom:25px;
       font-weight:800;
     }
 
     .hero p{
-      color:#d1d1d1;
+      max-width:700px;
+      margin:auto;
+      color:#cfcfcf;
       line-height:1.9;
-      margin-bottom:40px;
-      max-width:550px;
+      margin-bottom:45px;
       font-size:1rem;
     }
 
     .hero-buttons{
       display:flex;
+      justify-content:center;
       gap:20px;
       flex-wrap:wrap;
     }
 
     .btn{
-      padding:15px 34px;
-      border:1px solid white;
+      padding:15px 35px;
       border-radius:50px;
-      transition:0.4s ease;
+      border:1px solid rgba(255,255,255,0.3);
+      transition:0.4s;
       font-weight:600;
+      backdrop-filter:blur(10px);
     }
 
     .btn:hover{
       background:white;
       color:black;
-      transform:translateY(-4px);
+      transform:translateY(-5px);
+      box-shadow:0 0 30px rgba(255,255,255,0.2);
     }
 
+    /* =========================
+       FLOATING EMOJIS
+    ========================= */
+
+    .emoji{
+      position:absolute;
+      font-size:2rem;
+      opacity:0.8;
+      animation:floatEmoji 6s ease-in-out infinite;
+      z-index:1;
+    }
+
+    .emoji1{
+      top:20%;
+      left:12%;
+      animation-delay:0s;
+    }
+
+    .emoji2{
+      top:28%;
+      right:12%;
+      animation-delay:1s;
+    }
+
+    .emoji3{
+      bottom:18%;
+      left:18%;
+      animation-delay:2s;
+    }
+
+    .emoji4{
+      bottom:16%;
+      right:16%;
+      animation-delay:3s;
+    }
+
+    .emoji5{
+      top:50%;
+      left:8%;
+      animation-delay:4s;
+    }
+
+    .emoji6{
+      top:55%;
+      right:8%;
+      animation-delay:5s;
+    }
+
+    /* =========================
+       STATS
+    ========================= */
+
     .stats{
+      margin-top:70px;
       display:flex;
-      gap:45px;
-      margin-top:60px;
+      justify-content:center;
+      gap:50px;
       flex-wrap:wrap;
+    }
+
+    .stat{
+      padding:25px 35px;
+      border-radius:30px;
+      background:rgba(255,255,255,0.03);
+      border:1px solid rgba(255,255,255,0.05);
+      backdrop-filter:blur(10px);
     }
 
     .stat h2{
@@ -182,9 +260,12 @@
     }
 
     .stat p{
-      margin:0;
-      color:#999;
+      color:#aaa;
     }
+
+    /* =========================
+       SECTION TITLE
+    ========================= */
 
     .section-title{
       text-align:center;
@@ -201,8 +282,12 @@
       color:#aaa;
     }
 
+    /* =========================
+       GALLERY
+    ========================= */
+
     .gallery{
-      background:#050505;
+      background:#080808;
     }
 
     .gallery-grid{
@@ -213,15 +298,21 @@
 
     .gallery-item{
       overflow:hidden;
-      border-radius:28px;
-      border:1px solid rgba(255,255,255,0.08);
+      border-radius:35px;
       position:relative;
+      border:1px solid rgba(255,255,255,0.08);
+      transition:0.5s;
+    }
+
+    .gallery-item:hover{
+      transform:translateY(-10px);
+      box-shadow:0 0 40px rgba(255,255,255,0.1);
     }
 
     .gallery-item img{
-      height:450px;
+      height:520px;
       object-fit:cover;
-      transition:0.6s ease;
+      transition:0.7s;
       filter:grayscale(100%);
     }
 
@@ -230,6 +321,10 @@
       filter:grayscale(0%);
     }
 
+    /* =========================
+       ABOUT
+    ========================= */
+
     .about{
       display:grid;
       grid-template-columns:1fr 1fr;
@@ -237,9 +332,9 @@
       align-items:center;
     }
 
-    .about img{
-      border-radius:35px;
-      height:650px;
+    .about-image img{
+      border-radius:40px;
+      height:700px;
       object-fit:cover;
       filter:grayscale(100%);
     }
@@ -255,6 +350,10 @@
       line-height:2;
       margin-bottom:20px;
     }
+
+    /* =========================
+       CONTACT
+    ========================= */
 
     .contact{
       background:white;
@@ -281,21 +380,22 @@
     }
 
     .contact-grid{
+      margin-top:50px;
       display:grid;
       grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
       gap:25px;
-      margin-top:50px;
     }
 
     .contact-card{
-      background:#f5f5f5;
       padding:35px;
       border-radius:30px;
-      transition:0.4s ease;
+      background:#f5f5f5;
+      transition:0.4s;
     }
 
     .contact-card:hover{
-      transform:translateY(-8px);
+      transform:translateY(-10px);
+      box-shadow:0 15px 40px rgba(0,0,0,0.08);
     }
 
     .contact-card h3{
@@ -303,12 +403,36 @@
       font-size:1.3rem;
     }
 
+    /* =========================
+       FOOTER
+    ========================= */
+
     footer{
       text-align:center;
-      padding:30px;
+      padding:40px;
+      background:black;
       color:#666;
-      background:#000;
     }
+
+    .footer-links{
+      display:flex;
+      justify-content:center;
+      gap:25px;
+      flex-wrap:wrap;
+      margin-top:15px;
+    }
+
+    .footer-links a{
+      transition:0.3s;
+    }
+
+    .footer-links a:hover{
+      color:white;
+    }
+
+    /* =========================
+       ANIMATIONS
+    ========================= */
 
     .reveal{
       opacity:0;
@@ -324,43 +448,76 @@
     @keyframes fadeUp{
       from{
         opacity:0;
-        transform:translateY(50px);
+        transform:translateY(40px);
       }
+
       to{
         opacity:1;
         transform:translateY(0);
       }
     }
 
-    @media(max-width:1000px){
-      .hero{
-        text-align:center;
-        justify-content:center;
+    @keyframes rotate{
+      from{
+        transform:rotate(0deg);
       }
 
-      .hero-content{
-        margin-top:100px;
+      to{
+        transform:rotate(360deg);
       }
+    }
+
+    @keyframes rotateReverse{
+      from{
+        transform:rotate(45deg);
+      }
+
+      to{
+        transform:rotate(-315deg);
+      }
+    }
+
+    @keyframes floatEmoji{
+
+      0%{
+        transform:translateY(0px);
+      }
+
+      50%{
+        transform:translateY(-20px);
+      }
+
+      100%{
+        transform:translateY(0px);
+      }
+    }
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media(max-width:1000px){
 
       .hero h1{
-        font-size:4rem;
-      }
-
-      .hero p{
-        margin:auto auto 40px;
-      }
-
-      .hero-buttons,
-      .stats{
-        justify-content:center;
+        font-size:4.5rem;
       }
 
       .about{
         grid-template-columns:1fr;
       }
+
+      .about-image img{
+        height:550px;
+      }
+
     }
 
     @media(max-width:700px){
+
+      section{
+        padding:80px 6%;
+      }
+
       .navbar{
         padding:18px 6%;
       }
@@ -373,12 +530,28 @@
         font-size:0.8rem;
       }
 
-      section{
-        padding:80px 6%;
+      .hero h1{
+        font-size:3rem;
       }
 
-      .hero h1{
-        font-size:2.8rem;
+      .hero-buttons{
+        flex-direction:column;
+      }
+
+      .btn{
+        width:100%;
+      }
+
+      .gallery-grid{
+        grid-template-columns:1fr;
+      }
+
+      .gallery-item img{
+        height:420px;
+      }
+
+      .stats{
+        gap:20px;
       }
 
       .section-title h2,
@@ -387,17 +560,28 @@
         font-size:2.2rem;
       }
 
-      .about img{
-        height:500px;
+      .emoji{
+        font-size:1.5rem;
       }
+
     }
+
   </style>
 </head>
+
 <body>
 
+  <!-- PROGRESS BAR -->
+
+  <div id="progress-bar"></div>
+
   <!-- NAVBAR -->
+
   <nav class="navbar">
-    <div class="logo">Yadavhun Ji</div>
+
+    <div class="logo">
+      Yadavhun Ji
+    </div>
 
     <div class="nav-links">
       <a href="#home">Home</a>
@@ -405,212 +589,326 @@
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
     </div>
+
   </nav>
 
-  <!-- HERO SECTION -->
+  <!-- HERO -->
+
   <section class="hero" id="home">
 
+    <!-- FLOATING EMOJIS -->
+
+    <div class="emoji emoji1">▶️</div>
+    <div class="emoji emoji2">📸</div>
+    <div class="emoji emoji3">🔥</div>
+    <div class="emoji emoji4">🎬</div>
+    <div class="emoji emoji5">✨</div>
+    <div class="emoji emoji6">🚀</div>
+
     <div class="hero-content">
-      <div class="hero-tag">YouTube Creator • Digital Influencer</div>
+
+      <div class="hero-tag">
+        DIGITAL CREATOR • YOUTUBE • INFLUENCER
+      </div>
 
       <h1>Yadavhun Ji</h1>
 
       <p>
-        Cinematic creator building premium content experiences through lifestyle,
-        reels, fashion visuals, YouTube storytelling, and modern creator branding.
-        Growing a powerful digital audience with engaging visuals and authentic content.
+        Creating cinematic visuals, premium creator content,
+        viral storytelling, and engaging experiences across YouTube and Instagram.
       </p>
 
       <div class="hero-buttons">
 
-        <!-- YOUTUBE BUTTON -->
-        <a href="https://youtube.com/@yadavhun_ji?si=K2oCeHRWAzBL0DNx" class="btn" target="_blank">
-          Visit YouTube
+        <a href="https://youtube.com/@yadavhun_ji?si=K2oCeHRWAzBL0DNx"
+           class="btn"
+           target="_blank">
+
+          ▶️ YouTube
+
         </a>
 
-        <!--
-        ADD INSTAGRAM LINK HERE
+        <a href="https://instagram.com/yadavhun_ji"
+           class="btn"
+           target="_blank">
 
-        Replace:
-        https://instagram.com/yourusername
+          📸 Instagram
 
-        with your Instagram profile
-        -->
-
-        <a href="https://instagram.com/yourusername" class="btn" target="_blank">
-          Instagram
         </a>
+
       </div>
 
-      <!-- CREATOR STATS -->
+      <!-- STATS -->
+
       <div class="stats">
+
         <div class="stat">
           <h2>108K+</h2>
-          <p>YouTube Subscribers</p>
+          <p>▶️ YouTube Subs</p>
+        </div>
+
+        <div class="stat">
+          <h2>139K+</h2>
+          <p>📸 Instagram Followers</p>
         </div>
 
         <div class="stat">
           <h2>Millions</h2>
-          <p>Video Views</p>
+          <p>🔥 Total Views</p>
         </div>
 
-        <div class="stat">
-          <h2>Creator</h2>
-          <p>Premium Content</p>
-        </div>
       </div>
+
     </div>
+
   </section>
 
-  <!-- GALLERY SECTION -->
+  <!-- GALLERY -->
+
   <section class="gallery" id="gallery">
 
     <div class="section-title reveal">
+
       <h2>Featured Content</h2>
-      <p>Modern creator aesthetics and cinematic visual branding.</p>
+
+      <p>
+        Premium creator visuals and cinematic photography.
+      </p>
+
     </div>
 
     <div class="gallery-grid">
 
       <!--
-      ======================================
-      ADD YOUR REAL PHOTOS HERE
-      ======================================
+      =========================================
+      PUT YOUR REAL PHOTOS HERE
+      =========================================
       -->
 
       <div class="gallery-item reveal">
-        <img src="IMG_0403.JPG" alt="creator-image">
-      </div>
-
-     
-
-      <div class="gallery-item reveal">
-        <img src="IMG_0399.JPG" alt="creator-image">
+        <img src="IMG_0403.JPG" alt="">
       </div>
 
       <div class="gallery-item reveal">
-        <img src="IMG_0765.jpg" alt="creator-image">
+        <img src="IMG_0399.JPG" alt="">
       </div>
 
       <div class="gallery-item reveal">
-        <img src="IMG_0721.PNG" alt="creator-image">
+        <img src="IMG_0765.jpg" alt="">
       </div>
 
       <div class="gallery-item reveal">
-        <img src="assets/photo6.jpg" alt="creator-image">
+        <img src="IMG_0721.PNG" alt="">
       </div>
+
     </div>
+
   </section>
 
-  <!-- ABOUT SECTION -->
+  <!-- ABOUT -->
+
   <section class="about" id="about">
 
-    <!--
-    ======================================
-    ADD YOUR PORTRAIT IMAGE HERE
-    ======================================
-    -->
+    <div class="about-image reveal">
 
-    <div class="reveal">
-      <img src="assets/about.jpg" alt="about-image">
+      <!--
+      =========================================
+      ABOUT IMAGE
+      =========================================
+      -->
+
+      <img src="IMG_0765.jpg" alt="">
+
     </div>
 
     <div class="about-content reveal">
+
       <h2>About Creator</h2>
 
       <p>
-        Yadavhun Ji is a rising YouTube creator known for modern visuals,
-        engaging digital storytelling, and cinematic creator content.
+        Yadavhun Ji is a modern creator focused on cinematic storytelling,
+        lifestyle visuals, YouTube content, and digital influence.
       </p>
 
       <p>
-        Focused on building a premium creator identity through fashion,
-        lifestyle, reels, YouTube shorts, audience engagement, and visual creativity.
+        Building a premium creator identity with viral reels,
+        luxury aesthetics, and engaging visual branding.
       </p>
 
       <p>
-        Available for collaborations, creator partnerships, brand campaigns,
-        influencer promotions, and digital projects.
+        Available for sponsorships,
+        promotions, collaborations, and creator partnerships.
       </p>
+
     </div>
+
   </section>
 
-  <!-- CONTACT SECTION -->
+  <!-- CONTACT -->
+
   <section class="contact" id="contact">
 
     <div class="contact-wrapper reveal">
+
       <h2>Work With Me</h2>
 
       <p>
-        For sponsorships, YouTube collaborations, paid promotions,
-        creator campaigns, or business inquiries.
+        Contact for YouTube collaborations,
+        promotions, sponsorships, and creator partnerships.
       </p>
 
       <div class="contact-grid">
 
-        <!--
-        ADD GMAIL HERE
-        Replace:
-        yourmail@gmail.com
-        -->
-
         <div class="contact-card">
-          <h3>Gmail</h3>
-          <p>yourmail@gmail.com</p>
-        </div>
 
-        <!--
-        ADD INSTAGRAM USERNAME HERE
-        -->
+          <h3>📧 Gmail</h3>
 
-        <div class="contact-card">
-          <h3>Instagram</h3>
-          <p>@yourusername</p>
+          <a href="mailto:vaibhavyadavbussiness@gmail.com">
+
+            vaibhavyadavbussiness@gmail.com
+
+          </a>
+
         </div>
 
         <div class="contact-card">
-          <h3>YouTube</h3>
-          <p>@yadavhun_ji</p>
+
+          <h3>📸 Instagram</h3>
+
+          <a href="https://instagram.com/yadavhun_ji"
+             target="_blank">
+
+            @yadavhun_ji
+
+          </a>
+
         </div>
+
+        <div class="contact-card">
+
+          <h3>▶️ YouTube</h3>
+
+          <a href="https://youtube.com/@yadavhun_ji?si=K2oCeHRWAzBL0DNx"
+             target="_blank">
+
+            @yadavhun_ji
+
+          </a>
+
+        </div>
+
       </div>
+
     </div>
+
   </section>
 
+  <!-- FOOTER -->
+
   <footer>
-    © 2026 Yadavhun Ji • Premium Creator Website
+
+    <p>
+      © 2026 Yadavhun Ji • Premium Creator Website
+    </p>
+
+    <div class="footer-links">
+
+      <a href="https://instagram.com/yadavhun_ji"
+         target="_blank">
+
+        📸 Instagram
+
+      </a>
+
+      <a href="https://youtube.com/@yadavhun_ji?si=K2oCeHRWAzBL0DNx"
+         target="_blank">
+
+        ▶️ YouTube
+
+      </a>
+
+      <a href="mailto:vaibhavyadavbussiness@gmail.com">
+
+        📧 Gmail
+
+      </a>
+
+    </div>
+
   </footer>
 
   <script>
 
-    // SMOOTH SCROLL REVEAL
+    // REVEAL ANIMATION
 
-    const reveals = document.querySelectorAll('.reveal');
+    const reveals =
+    document.querySelectorAll('.reveal');
 
     window.addEventListener('scroll', () => {
+
       reveals.forEach((reveal) => {
-        const windowHeight = window.innerHeight;
-        const revealTop = reveal.getBoundingClientRect().top;
+
+        const windowHeight =
+        window.innerHeight;
+
+        const revealTop =
+        reveal.getBoundingClientRect().top;
+
         const revealPoint = 100;
 
         if(revealTop < windowHeight - revealPoint){
+
           reveal.classList.add('active');
+
         }
+
       });
+
     });
 
     // NAVBAR EFFECT
 
     window.addEventListener('scroll', () => {
-      const navbar = document.querySelector('.navbar');
+
+      const navbar =
+      document.querySelector('.navbar');
 
       if(window.scrollY > 50){
-        navbar.style.background = 'rgba(0,0,0,0.9)';
+
+        navbar.style.background =
+        'rgba(0,0,0,0.9)';
+
       }
+
       else{
-        navbar.style.background = 'rgba(0,0,0,0.55)';
+
+        navbar.style.background =
+        'rgba(0,0,0,0.35)';
+
       }
+
+    });
+
+    // PROGRESS BAR
+
+    window.addEventListener('scroll', () => {
+
+      const scrollTop =
+      document.documentElement.scrollTop;
+
+      const scrollHeight =
+      document.documentElement.scrollHeight -
+      document.documentElement.clientHeight;
+
+      const scrollPercent =
+      (scrollTop / scrollHeight) * 100;
+
+      document.getElementById('progress-bar')
+      .style.width = scrollPercent + '%';
+
     });
 
   </script>
+
 </body>
 </html>
