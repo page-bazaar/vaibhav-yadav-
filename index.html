@@ -1,15 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <title>Yadavhun Ji | Creator</title>
+  <title>Vaibhav Yadav | Luxury Creator</title>
+
+  <!-- GOOGLE FONTS -->
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
+
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- FONT AWESOME -->
+
+  <link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 
   <style>
 
@@ -20,16 +29,19 @@
       scroll-behavior:smooth;
     }
 
+    :root{
+      --white:#ffffff;
+      --gray:#bdbdbd;
+      --glass:rgba(255,255,255,0.06);
+      --border:rgba(255,255,255,0.08);
+      --dark:#050505;
+    }
+
     body{
       background:#050505;
       color:white;
-      font-family:'Poppins',sans-serif;
+      font-family:'Inter',sans-serif;
       overflow-x:hidden;
-    }
-
-    a{
-      text-decoration:none;
-      color:inherit;
     }
 
     img{
@@ -37,13 +49,48 @@
       display:block;
     }
 
+    a{
+      text-decoration:none;
+      color:white;
+    }
+
     section{
-      padding:100px 8%;
+      padding:120px 8%;
       position:relative;
     }
 
     /* =========================
-       SCROLL BAR
+       FROZEN GRADIENT BACKGROUND
+    ========================= */
+
+    body::before{
+      content:'';
+      position:fixed;
+      width:700px;
+      height:700px;
+      background:white;
+      opacity:0.08;
+      filter:blur(220px);
+      top:-200px;
+      left:-150px;
+      z-index:-10;
+    }
+
+    body::after{
+      content:'';
+      position:fixed;
+      width:700px;
+      height:700px;
+      background:#8b8b8b;
+      opacity:0.08;
+      filter:blur(240px);
+      bottom:-250px;
+      right:-150px;
+      z-index:-10;
+    }
+
+    /* =========================
+       PROGRESS BAR
     ========================= */
 
     #progress-bar{
@@ -60,40 +107,58 @@
        NAVBAR
     ========================= */
 
-    .navbar{
+    nav{
       position:fixed;
       top:0;
       width:100%;
       z-index:999;
-      padding:22px 8%;
+      padding:24px 8%;
       display:flex;
       justify-content:space-between;
       align-items:center;
-      background:rgba(0,0,0,0.35);
-      backdrop-filter:blur(15px);
+      background:rgba(0,0,0,0.25);
+      backdrop-filter:blur(18px);
       border-bottom:1px solid rgba(255,255,255,0.05);
-      transition:0.4s;
     }
 
     .logo{
-      font-size:1.2rem;
+      font-size:36px;
+      font-family:'Cormorant Garamond',serif;
+      letter-spacing:3px;
       font-weight:700;
-      letter-spacing:2px;
-      text-transform:uppercase;
     }
 
-    .nav-links{
+    nav ul{
       display:flex;
-      gap:30px;
+      gap:35px;
+      list-style:none;
     }
 
-    .nav-links a{
-      color:#bbb;
+    nav ul li a{
+      color:#cfcfcf;
       transition:0.3s;
+      font-size:15px;
+      letter-spacing:1px;
     }
 
-    .nav-links a:hover{
+    nav ul li a:hover{
       color:white;
+    }
+
+    .nav-btn{
+      padding:15px 30px;
+      border-radius:999px;
+      background:rgba(255,255,255,0.08);
+      backdrop-filter:blur(16px);
+      border:1px solid rgba(255,255,255,0.08);
+      transition:0.3s;
+      font-weight:600;
+    }
+
+    .nav-btn:hover{
+      transform:translateY(-5px);
+      background:white;
+      color:black;
     }
 
     /* =========================
@@ -102,136 +167,81 @@
 
     .hero{
       min-height:100vh;
-      display:flex;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:70px;
       align-items:center;
-      justify-content:center;
-      text-align:center;
-      overflow:hidden;
-      background:
-      radial-gradient(circle at top left,#1b1b1b 0%,#050505 45%);
+      padding-top:180px;
     }
 
-    .hero::before{
-      content:'';
-      position:absolute;
-      width:700px;
-      height:700px;
-      border:1px solid rgba(255,255,255,0.06);
-      border-radius:50%;
-      animation:rotate 25s linear infinite;
-    }
-
-    .hero::after{
-      content:'';
-      position:absolute;
-      width:450px;
-      height:450px;
-      border:1px solid rgba(255,255,255,0.05);
-      transform:rotate(45deg);
-      animation:rotateReverse 18s linear infinite;
-    }
-
-    .hero-content{
+    .hero-left{
       position:relative;
-      z-index:5;
-      max-width:900px;
-      animation:fadeUp 1.2s ease;
+      z-index:2;
     }
 
     .hero-tag{
-      color:#aaa;
-      letter-spacing:5px;
-      text-transform:uppercase;
-      margin-bottom:25px;
-      font-size:0.9rem;
+      display:inline-flex;
+      align-items:center;
+      gap:12px;
+      padding:14px 24px;
+      border-radius:999px;
+      background:rgba(255,255,255,0.05);
+      border:1px solid rgba(255,255,255,0.08);
+      backdrop-filter:blur(16px);
+      margin-bottom:30px;
+      color:#d8d8d8;
     }
 
-    .hero h1{
-      font-size:7rem;
-      line-height:0.95;
-      text-transform:uppercase;
+    .hero-left h1{
+      font-size:110px;
+      line-height:0.9;
+      font-family:'Cormorant Garamond',serif;
       margin-bottom:25px;
-      font-weight:800;
     }
 
-    .hero p{
-      max-width:700px;
-      margin:auto;
-      color:#cfcfcf;
+    .hero-left p{
+      color:#d1d1d1;
       line-height:1.9;
+      font-size:18px;
+      max-width:650px;
       margin-bottom:45px;
-      font-size:1rem;
     }
 
     .hero-buttons{
       display:flex;
-      justify-content:center;
       gap:20px;
       flex-wrap:wrap;
+      margin-bottom:55px;
     }
 
-    .btn{
-      padding:15px 35px;
-      border-radius:50px;
-      border:1px solid rgba(255,255,255,0.3);
-      transition:0.4s;
-      font-weight:600;
-      backdrop-filter:blur(10px);
-    }
-
-    .btn:hover{
+    .primary-btn{
+      padding:18px 34px;
+      border-radius:999px;
       background:white;
       color:black;
+      font-weight:700;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      transition:0.3s;
+    }
+
+    .primary-btn:hover{
       transform:translateY(-5px);
-      box-shadow:0 0 30px rgba(255,255,255,0.2);
+      box-shadow:0 20px 40px rgba(255,255,255,0.15);
     }
 
-    /* =========================
-       FLOATING EMOJIS
-    ========================= */
-
-    .emoji{
-      position:absolute;
-      font-size:2rem;
-      opacity:0.8;
-      animation:floatEmoji 6s ease-in-out infinite;
-      z-index:1;
+    .secondary-btn{
+      padding:18px 34px;
+      border-radius:999px;
+      background:rgba(255,255,255,0.05);
+      border:1px solid rgba(255,255,255,0.08);
+      backdrop-filter:blur(16px);
+      transition:0.3s;
     }
 
-    .emoji1{
-      top:20%;
-      left:12%;
-      animation-delay:0s;
-    }
-
-    .emoji2{
-      top:28%;
-      right:12%;
-      animation-delay:1s;
-    }
-
-    .emoji3{
-      bottom:18%;
-      left:18%;
-      animation-delay:2s;
-    }
-
-    .emoji4{
-      bottom:16%;
-      right:16%;
-      animation-delay:3s;
-    }
-
-    .emoji5{
-      top:50%;
-      left:8%;
-      animation-delay:4s;
-    }
-
-    .emoji6{
-      top:55%;
-      right:8%;
-      animation-delay:5s;
+    .secondary-btn:hover{
+      background:rgba(255,255,255,0.1);
     }
 
     /* =========================
@@ -239,28 +249,91 @@
     ========================= */
 
     .stats{
-      margin-top:70px;
       display:flex;
-      justify-content:center;
       gap:50px;
       flex-wrap:wrap;
     }
 
     .stat{
-      padding:25px 35px;
+      background:rgba(255,255,255,0.04);
+      padding:28px;
       border-radius:30px;
-      background:rgba(255,255,255,0.03);
-      border:1px solid rgba(255,255,255,0.05);
-      backdrop-filter:blur(10px);
+      backdrop-filter:blur(16px);
+      border:1px solid rgba(255,255,255,0.08);
+      min-width:180px;
     }
 
     .stat h2{
-      font-size:2.2rem;
+      font-size:42px;
       margin-bottom:8px;
     }
 
-    .stat p{
-      color:#aaa;
+    .stat span{
+      color:#cfcfcf;
+    }
+
+    /* =========================
+       HERO IMAGE
+    ========================= */
+
+    .hero-right{
+      position:relative;
+    }
+
+    .hero-image{
+      height:850px;
+      border-radius:45px;
+      overflow:hidden;
+      position:relative;
+      border:1px solid rgba(255,255,255,0.08);
+    }
+
+    .hero-image img{
+      height:100%;
+      object-fit:cover;
+      transition:0.6s;
+    }
+
+    .hero-image:hover img{
+      transform:scale(1.05);
+    }
+
+    .hero-overlay{
+      position:absolute;
+      inset:0;
+      background:
+      linear-gradient(to top,rgba(0,0,0,0.85),transparent);
+    }
+
+    .floating-card{
+      position:absolute;
+      background:rgba(255,255,255,0.06);
+      backdrop-filter:blur(20px);
+      border:1px solid rgba(255,255,255,0.08);
+      padding:28px;
+      border-radius:30px;
+      width:260px;
+      animation:float 5s ease-in-out infinite;
+    }
+
+    .card-top{
+      top:40px;
+      left:-40px;
+    }
+
+    .card-bottom{
+      bottom:40px;
+      right:-40px;
+    }
+
+    .floating-card h3{
+      font-size:36px;
+      margin-bottom:12px;
+    }
+
+    .floating-card p{
+      color:#d6d6d6;
+      line-height:1.8;
     }
 
     /* =========================
@@ -269,56 +342,77 @@
 
     .section-title{
       text-align:center;
-      margin-bottom:70px;
+      margin-bottom:80px;
+    }
+
+    .section-title span{
+      color:#d8d8d8;
+      letter-spacing:3px;
+      font-size:14px;
     }
 
     .section-title h2{
-      font-size:3rem;
-      margin-bottom:15px;
-      text-transform:uppercase;
+      font-size:80px;
+      font-family:'Cormorant Garamond',serif;
+      margin-top:18px;
+      margin-bottom:20px;
     }
 
     .section-title p{
-      color:#aaa;
+      max-width:720px;
+      margin:auto;
+      line-height:1.9;
+      color:#cfcfcf;
     }
 
     /* =========================
        GALLERY
     ========================= */
 
-    .gallery{
-      background:#080808;
-    }
-
     .gallery-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-      gap:25px;
+      columns:3 320px;
+      column-gap:25px;
     }
 
-    .gallery-item{
+    .gallery-card{
+      position:relative;
       overflow:hidden;
       border-radius:35px;
-      position:relative;
-      border:1px solid rgba(255,255,255,0.08);
-      transition:0.5s;
+      margin-bottom:25px;
+      break-inside:avoid;
+      cursor:pointer;
+      border:1px solid rgba(255,255,255,0.06);
     }
 
-    .gallery-item:hover{
-      transform:translateY(-10px);
-      box-shadow:0 0 40px rgba(255,255,255,0.1);
-    }
-
-    .gallery-item img{
-      height:520px;
-      object-fit:cover;
-      transition:0.7s;
+    .gallery-card img{
+      transition:0.6s;
       filter:grayscale(100%);
     }
 
-    .gallery-item:hover img{
+    .gallery-card:hover img{
       transform:scale(1.08);
       filter:grayscale(0%);
+    }
+
+    .gallery-overlay{
+      position:absolute;
+      inset:0;
+      background:
+      linear-gradient(to top,rgba(0,0,0,0.9),transparent);
+      display:flex;
+      flex-direction:column;
+      justify-content:flex-end;
+      padding:30px;
+    }
+
+    .gallery-overlay h3{
+      font-size:32px;
+      margin-bottom:10px;
+    }
+
+    .gallery-overlay p{
+      color:#ddd;
+      line-height:1.7;
     }
 
     /* =========================
@@ -332,75 +426,102 @@
       align-items:center;
     }
 
+    .about-image{
+      position:relative;
+    }
+
     .about-image img{
-      border-radius:40px;
-      height:700px;
+      height:850px;
       object-fit:cover;
+      border-radius:40px;
       filter:grayscale(100%);
     }
 
+    .about-badge{
+      position:absolute;
+      top:30px;
+      left:30px;
+      padding:18px 25px;
+      border-radius:20px;
+      background:rgba(255,255,255,0.06);
+      backdrop-filter:blur(16px);
+      border:1px solid rgba(255,255,255,0.08);
+    }
+
     .about-content h2{
-      font-size:3.5rem;
+      font-size:80px;
+      font-family:'Cormorant Garamond',serif;
       margin-bottom:25px;
-      text-transform:uppercase;
     }
 
     .about-content p{
-      color:#bbb;
-      line-height:2;
-      margin-bottom:20px;
+      color:#d0d0d0;
+      line-height:1.9;
+      margin-bottom:40px;
+    }
+
+    .features{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:20px;
+    }
+
+    .feature{
+      background:rgba(255,255,255,0.05);
+      border:1px solid rgba(255,255,255,0.08);
+      backdrop-filter:blur(18px);
+      padding:32px;
+      border-radius:28px;
+      transition:0.3s;
+    }
+
+    .feature:hover{
+      transform:translateY(-10px);
+      background:rgba(255,255,255,0.08);
+    }
+
+    .feature i{
+      font-size:28px;
+      margin-bottom:15px;
     }
 
     /* =========================
        CONTACT
     ========================= */
 
-    .contact{
-      background:white;
-      color:black;
-      border-top-left-radius:60px;
-      border-top-right-radius:60px;
-    }
-
-    .contact-wrapper{
-      max-width:1000px;
-      margin:auto;
+    .contact-box{
+      position:relative;
+      overflow:hidden;
+      border-radius:50px;
+      padding:110px;
       text-align:center;
+
+      background:
+      linear-gradient(
+      rgba(0,0,0,0.7),
+      rgba(0,0,0,0.7)),
+      url('IMG_0721.PNG') center/cover;
     }
 
-    .contact h2{
-      font-size:3rem;
+    .contact-content h2{
+      font-size:82px;
+      font-family:'Cormorant Garamond',serif;
       margin-bottom:20px;
-      text-transform:uppercase;
     }
 
-    .contact p{
-      color:#444;
-      line-height:1.8;
+    .contact-content p{
+      max-width:720px;
+      margin:auto;
+      color:#ddd;
+      line-height:1.9;
+      margin-bottom:40px;
     }
 
-    .contact-grid{
-      margin-top:50px;
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-      gap:25px;
-    }
-
-    .contact-card{
-      padding:35px;
-      border-radius:30px;
-      background:#f5f5f5;
-      transition:0.4s;
-    }
-
-    .contact-card:hover{
-      transform:translateY(-10px);
-      box-shadow:0 15px 40px rgba(0,0,0,0.08);
-    }
-
-    .contact-card h3{
-      margin-bottom:12px;
-      font-size:1.3rem;
+    .contact-buttons{
+      display:flex;
+      justify-content:center;
+      gap:20px;
+      flex-wrap:wrap;
     }
 
     /* =========================
@@ -408,160 +529,123 @@
     ========================= */
 
     footer{
-      text-align:center;
-      padding:40px;
-      background:black;
-      color:#666;
-    }
-
-    .footer-links{
+      padding:45px 8%;
       display:flex;
-      justify-content:center;
-      gap:25px;
+      justify-content:space-between;
+      align-items:center;
       flex-wrap:wrap;
-      margin-top:15px;
+      gap:20px;
+      border-top:1px solid rgba(255,255,255,0.06);
     }
 
-    .footer-links a{
+    .footer-social{
+      display:flex;
+      gap:15px;
+    }
+
+    .footer-social a{
+      width:50px;
+      height:50px;
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:rgba(255,255,255,0.05);
       transition:0.3s;
     }
 
-    .footer-links a:hover{
-      color:white;
+    .footer-social a:hover{
+      background:white;
+      color:black;
+      transform:translateY(-5px);
     }
 
     /* =========================
-       ANIMATIONS
+       ANIMATION
     ========================= */
 
-    .reveal{
+    .hidden{
       opacity:0;
-      transform:translateY(60px);
+      transform:translateY(80px);
       transition:all 1s ease;
     }
 
-    .reveal.active{
+    .show{
       opacity:1;
       transform:translateY(0);
     }
 
-    @keyframes fadeUp{
-      from{
-        opacity:0;
-        transform:translateY(40px);
-      }
-
-      to{
-        opacity:1;
-        transform:translateY(0);
-      }
-    }
-
-    @keyframes rotate{
-      from{
-        transform:rotate(0deg);
-      }
-
-      to{
-        transform:rotate(360deg);
-      }
-    }
-
-    @keyframes rotateReverse{
-      from{
-        transform:rotate(45deg);
-      }
-
-      to{
-        transform:rotate(-315deg);
-      }
-    }
-
-    @keyframes floatEmoji{
+    @keyframes float{
 
       0%{
         transform:translateY(0px);
       }
 
       50%{
-        transform:translateY(-20px);
+        transform:translateY(-18px);
       }
 
       100%{
         transform:translateY(0px);
       }
+
     }
 
     /* =========================
-       MOBILE
+       RESPONSIVE
     ========================= */
 
-    @media(max-width:1000px){
+    @media(max-width:1200px){
 
-      .hero h1{
-        font-size:4.5rem;
-      }
-
+      .hero,
       .about{
         grid-template-columns:1fr;
       }
 
-      .about-image img{
-        height:550px;
+      .hero-left h1,
+      .section-title h2,
+      .about-content h2,
+      .contact-content h2{
+        font-size:72px;
       }
 
     }
 
-    @media(max-width:700px){
+    @media(max-width:768px){
 
-      section{
-        padding:80px 6%;
+      nav ul{
+        display:none;
       }
 
-      .navbar{
-        padding:18px 6%;
-      }
-
-      .nav-links{
-        gap:15px;
-      }
-
-      .nav-links a{
-        font-size:0.8rem;
-      }
-
-      .hero h1{
-        font-size:3rem;
+      .hero-left h1,
+      .section-title h2,
+      .about-content h2,
+      .contact-content h2{
+        font-size:52px;
       }
 
       .hero-buttons{
         flex-direction:column;
       }
 
-      .btn{
-        width:100%;
-      }
-
-      .gallery-grid{
+      .features{
         grid-template-columns:1fr;
       }
 
-      .gallery-item img{
-        height:420px;
+      .hero-image{
+        height:600px;
       }
 
-      .stats{
-        gap:20px;
+      .about-image img{
+        height:600px;
       }
 
-      .section-title h2,
-      .about-content h2,
-      .contact h2{
-        font-size:2.2rem;
+      .floating-card{
+        display:none;
       }
 
-      .emoji{
-        font-size:1.5rem;
+      .contact-box{
+        padding:60px 30px;
       }
 
     }
@@ -577,18 +661,24 @@
 
   <!-- NAVBAR -->
 
-  <nav class="navbar">
+  <nav>
 
     <div class="logo">
-      Yadavhun Ji
+      VAIBHAV
     </div>
 
-    <div class="nav-links">
-      <a href="#home">Home</a>
-      <a href="#gallery">Photos</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-    </div>
+    <ul>
+
+      <li><a href="#home">Home</a></li>
+      <li><a href="#gallery">Content</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+
+    </ul>
+
+    <a href="#contact" class="nav-btn">
+      Collaborate
+    </a>
 
   </nav>
 
@@ -596,43 +686,41 @@
 
   <section class="hero" id="home">
 
-    <!-- FLOATING EMOJIS -->
-
-    <div class="emoji emoji1">▶️</div>
-    <div class="emoji emoji2">📸</div>
-    <div class="emoji emoji3">🔥</div>
-    <div class="emoji emoji4">🎬</div>
-    <div class="emoji emoji5">✨</div>
-    <div class="emoji emoji6">🚀</div>
-
-    <div class="hero-content">
+    <div class="hero-left">
 
       <div class="hero-tag">
-        DIGITAL CREATOR • YOUTUBE • INFLUENCER
+        ❄️ Luxury Creator • Cinematic Storytelling
       </div>
 
-      <h1>Vaibhav Yadav</h1>
+      <h1>
+        Vaibhav
+        <br>
+        Yadav
+      </h1>
 
       <p>
-        Creating cinematic visuals, premium creator content,
-        viral storytelling, and engaging experiences across YouTube and Instagram.
+        Modern YouTube creator and influencer crafting cinematic visuals,
+        luxury lifestyle aesthetics, viral storytelling,
+        and premium digital experiences.
       </p>
 
       <div class="hero-buttons">
 
         <a href="https://youtube.com/@yadavhun_ji?si=K2oCeHRWAzBL0DNx"
-           class="btn"
-           target="_blank">
+           target="_blank"
+           class="primary-btn">
 
-          ▶️ YouTube
+          <i class="fa-brands fa-youtube"></i>
+          YouTube
 
         </a>
 
         <a href="https://instagram.com/yadavhun_ji"
-           class="btn"
-           target="_blank">
+           target="_blank"
+           class="secondary-btn">
 
-          📸 Instagram
+          <i class="fa-brands fa-instagram"></i>
+          Instagram
 
         </a>
 
@@ -643,19 +731,73 @@
       <div class="stats">
 
         <div class="stat">
+
           <h2>108K+</h2>
-          <p>▶️ YouTube Subs</p>
+
+          <span>YouTube Subscribers</span>
+
         </div>
 
         <div class="stat">
+
           <h2>139K+</h2>
-          <p>📸 Instagram Followers</p>
+
+          <span>Instagram Followers</span>
+
         </div>
 
         <div class="stat">
+
           <h2>Millions</h2>
-          <p>🔥 Total Views</p>
+
+          <span>Total Views</span>
+
         </div>
+
+      </div>
+
+    </div>
+
+    <!-- HERO RIGHT -->
+
+    <div class="hero-right">
+
+      <!--
+      =====================================
+      HERO IMAGE
+      =====================================
+
+      Replace:
+      IMG_0403.JPG
+
+      with your own portrait image
+      -->
+
+      <div class="hero-image">
+
+        <img src="IMG_0403.JPG">
+
+        <div class="hero-overlay"></div>
+
+      </div>
+
+      <div class="floating-card card-top">
+
+        <h3>Creator</h3>
+
+        <p>
+          Building cinematic digital visuals and luxury storytelling.
+        </p>
+
+      </div>
+
+      <div class="floating-card card-bottom">
+
+        <h3>108K+</h3>
+
+        <p>
+          Growing audience through premium content and engagement.
+        </p>
 
       </div>
 
@@ -665,40 +807,79 @@
 
   <!-- GALLERY -->
 
-  <section class="gallery" id="gallery">
+  <section id="gallery" class="hidden">
 
-    <div class="section-title reveal">
+    <div class="section-title">
 
-      <h2>Featured Content</h2>
+      <span>FEATURED CONTENT</span>
+
+      <h2>
+        Cinematic Visuals
+      </h2>
 
       <p>
-        Premium creator visuals and cinematic photography.
+        Luxury aesthetics, creator lifestyle visuals,
+        cinematic photography, and viral storytelling.
       </p>
 
     </div>
 
     <div class="gallery-grid">
 
-      <!--
-      =========================================
-      PUT YOUR REAL PHOTOS HERE
-      =========================================
-      -->
+      <div class="gallery-card">
 
-      <div class="gallery-item reveal">
-        <img src="IMG_0403.JPG" alt="">
+        <img src="IMG_0403.JPG">
+
+        <div class="gallery-overlay">
+
+          <h3>Luxury Lifestyle</h3>
+
+          <p>Modern creator aesthetics</p>
+
+        </div>
+
       </div>
 
-      <div class="gallery-item reveal">
-        <img src="IMG_0399.JPG" alt="">
+      <div class="gallery-card">
+
+        <img src="IMG_0399.JPG">
+
+        <div class="gallery-overlay">
+
+          <h3>Street Fashion</h3>
+
+          <p>Cinematic fashion visuals</p>
+
+        </div>
+
       </div>
 
-      <div class="gallery-item reveal">
-        <img src="IMG_0765.jpg" alt="">
+      <div class="gallery-card">
+
+        <img src="IMG_0765.jpg">
+
+        <div class="gallery-overlay">
+
+          <h3>Digital Creator</h3>
+
+          <p>Luxury visual storytelling</p>
+
+        </div>
+
       </div>
 
-      <div class="gallery-item reveal">
-        <img src="IMG_0721.PNG" alt="">
+      <div class="gallery-card">
+
+        <img src="IMG_0721.PNG">
+
+        <div class="gallery-overlay">
+
+          <h3>Premium Content</h3>
+
+          <p>Viral content experiences</p>
+
+        </div>
+
       </div>
 
     </div>
@@ -707,38 +888,70 @@
 
   <!-- ABOUT -->
 
-  <section class="about" id="about">
+  <section id="about" class="hidden">
 
-    <div class="about-image reveal">
+    <div class="about">
 
-      <!--
-      =========================================
-      ABOUT IMAGE
-      =========================================
-      -->
+      <div class="about-image">
 
-      <img src="IMG_0765.jpg" alt="">
+        <img src="IMG_0765.jpg">
 
-    </div>
+        <div class="about-badge">
 
-    <div class="about-content reveal">
+          ❄️ Frozen Luxury Aesthetic
 
-      <h2>About Creator</h2>
+        </div>
 
-      <p>
-        Yadavhun Ji is a modern creator focused on cinematic storytelling,
-        lifestyle visuals, YouTube content, and digital influence.
-      </p>
+      </div>
 
-      <p>
-        Building a premium creator identity with viral reels,
-        luxury aesthetics, and engaging visual branding.
-      </p>
+      <div class="about-content">
 
-      <p>
-        Available for sponsorships,
-        promotions, collaborations, and creator partnerships.
-      </p>
+        <h2>
+          Modern Creator Identity
+        </h2>
+
+        <p>
+          Vaibhav Yadav creates cinematic creator content blending luxury visuals,
+          storytelling, fashion aesthetics, reels, and digital influence.
+        </p>
+
+        <div class="features">
+
+          <div class="feature">
+
+            <i class="fa-solid fa-camera"></i>
+
+            <h4>Cinematic Reels</h4>
+
+          </div>
+
+          <div class="feature">
+
+            <i class="fa-solid fa-fire"></i>
+
+            <h4>Viral Storytelling</h4>
+
+          </div>
+
+          <div class="feature">
+
+            <i class="fa-solid fa-star"></i>
+
+            <h4>Luxury Visuals</h4>
+
+          </div>
+
+          <div class="feature">
+
+            <i class="fa-solid fa-video"></i>
+
+            <h4>YouTube Content</h4>
+
+          </div>
+
+        </div>
+
+      </div>
 
     </div>
 
@@ -746,52 +959,45 @@
 
   <!-- CONTACT -->
 
-  <section class="contact" id="contact">
+  <section id="contact" class="hidden">
 
-    <div class="contact-wrapper reveal">
+    <div class="contact-box">
 
-      <h2>Work With Me</h2>
+      <div class="contact-content">
 
-      <p>
-        Contact for YouTube collaborations,
-        promotions, sponsorships, and creator partnerships.
-      </p>
+        <h2>
+          Let’s Build Something Cinematic
+        </h2>
 
-      <div class="contact-grid">
+        <p>
+          Open for collaborations,
+          promotions,
+          luxury creator campaigns,
+          and digital storytelling partnerships.
+        </p>
 
-        <div class="contact-card">
+        <div class="contact-buttons">
 
-          <h3>📧 Gmail</h3>
+          <a href="mailto:vaibhavyadavbussiness@gmail.com"
+             class="primary-btn">
 
-          <a href="mailto:vaibhavyadavbussiness@gmail.com">
-
-            vaibhavyadavbussiness@gmail.com
+            📧 Email Me
 
           </a>
-
-        </div>
-
-        <div class="contact-card">
-
-          <h3>📸 Instagram</h3>
 
           <a href="https://instagram.com/yadavhun_ji"
-             target="_blank">
+             target="_blank"
+             class="secondary-btn">
 
-            @yadavhun_ji
+            📸 Instagram
 
           </a>
 
-        </div>
-
-        <div class="contact-card">
-
-          <h3>▶️ YouTube</h3>
-
           <a href="https://youtube.com/@yadavhun_ji?si=K2oCeHRWAzBL0DNx"
-             target="_blank">
+             target="_blank"
+             class="secondary-btn">
 
-            @yadavhun_ji
+            ▶️ YouTube
 
           </a>
 
@@ -807,29 +1013,29 @@
 
   <footer>
 
-    <p>
-      © 2026 Yadavhun Ji • Premium Creator Website
-    </p>
+    <div>
+      © 2026 Vaibhav Yadav — All Rights Reserved.
+    </div>
 
-    <div class="footer-links">
+    <div class="footer-social">
 
       <a href="https://instagram.com/yadavhun_ji"
          target="_blank">
 
-        📸 Instagram
+        <i class="fa-brands fa-instagram"></i>
 
       </a>
 
       <a href="https://youtube.com/@yadavhun_ji?si=K2oCeHRWAzBL0DNx"
          target="_blank">
 
-        ▶️ YouTube
+        <i class="fa-brands fa-youtube"></i>
 
       </a>
 
       <a href="mailto:vaibhavyadavbussiness@gmail.com">
 
-        📧 Gmail
+        <i class="fa-solid fa-envelope"></i>
 
       </a>
 
@@ -837,28 +1043,23 @@
 
   </footer>
 
+  <!-- JAVASCRIPT -->
+
   <script>
 
-    // REVEAL ANIMATION
+    // SCROLL REVEAL
 
-    const reveals =
-    document.querySelectorAll('.reveal');
+    const hiddenElements =
+    document.querySelectorAll('.hidden');
 
-    window.addEventListener('scroll', () => {
+    const observer =
+    new IntersectionObserver((entries)=>{
 
-      reveals.forEach((reveal) => {
+      entries.forEach((entry)=>{
 
-        const windowHeight =
-        window.innerHeight;
+        if(entry.isIntersecting){
 
-        const revealTop =
-        reveal.getBoundingClientRect().top;
-
-        const revealPoint = 100;
-
-        if(revealTop < windowHeight - revealPoint){
-
-          reveal.classList.add('active');
+          entry.target.classList.add('show');
 
         }
 
@@ -866,32 +1067,12 @@
 
     });
 
-    // NAVBAR EFFECT
-
-    window.addEventListener('scroll', () => {
-
-      const navbar =
-      document.querySelector('.navbar');
-
-      if(window.scrollY > 50){
-
-        navbar.style.background =
-        'rgba(0,0,0,0.9)';
-
-      }
-
-      else{
-
-        navbar.style.background =
-        'rgba(0,0,0,0.35)';
-
-      }
-
-    });
+    hiddenElements.forEach((el)=>
+    observer.observe(el));
 
     // PROGRESS BAR
 
-    window.addEventListener('scroll', () => {
+    window.addEventListener('scroll',()=>{
 
       const scrollTop =
       document.documentElement.scrollTop;
@@ -911,4 +1092,5 @@
   </script>
 
 </body>
+
 </html>
