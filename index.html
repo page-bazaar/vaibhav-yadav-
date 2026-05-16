@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yadavhun Ji | YouTube Creator</title>
+
+  <!--
+  =====================================================
+  PREMIUM MALE INFLUENCER LANDING PAGE
+  =====================================================
+
+  HOW TO ADD YOUR REAL ASSETS:
+
+  1. Create a folder named:
+     assets
+
+  2. Put your images inside it.
+
+  3. Replace these image names with your own:
+
+     assets/hero.jpg
+     assets/photo1.jpg
+     assets/photo2.jpg
+     assets/photo3.jpg
+     assets/photo4.jpg
+     assets/about.jpg
+
+  4. You can also add videos later.
+
+  =====================================================
+  -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:'Poppins',sans-serif;
+      background:#000;
+      color:#fff;
+      overflow-x:hidden;
+    }
+
+    img{
+      width:100%;
+      display:block;
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
+
+    section{
+      padding:100px 8%;
+    }
+
+    .navbar{
+      position:fixed;
+      top:0;
+      width:100%;
+      z-index:1000;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:22px 8%;
+      background:rgba(0,0,0,0.55);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid rgba(255,255,255,0.08);
+    }
+
+    .logo{
+      font-size:1.2rem;
+      font-weight:700;
+      letter-spacing:2px;
+      text-transform:uppercase;
+    }
+
+    .nav-links{
+      display:flex;
+      gap:30px;
+    }
+
+    .nav-links a{
+      color:#ccc;
+      transition:0.3s;
+      font-size:0.95rem;
+    }
+
+    .nav-links a:hover{
+      color:#fff;
+    }
+
+    .hero{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      background:
+      linear-gradient(to right, rgba(0,0,0,0.95), rgba(0,0,0,0.45)),
+      url('assets/hero.jpg') center/cover no-repeat;
+
+      /*
+      =====================================
+      PUT MAIN HERO IMAGE HERE
+      =====================================
+
+      Replace:
+      assets/hero.jpg
+
+      with your real hero image.
+      */
+    }
+
+    .hero-content{
+      max-width:700px;
+      animation:fadeUp 1.2s ease;
+    }
+
+    .hero-tag{
+      color:#aaa;
+      margin-bottom:20px;
+      letter-spacing:5px;
+      font-size:0.9rem;
+      text-transform:uppercase;
+    }
+
+    .hero h1{
+      font-size:6rem;
+      line-height:0.95;
+      margin-bottom:25px;
+      text-transform:uppercase;
+      font-weight:800;
+    }
+
+    .hero p{
+      color:#d1d1d1;
+      line-height:1.9;
+      margin-bottom:40px;
+      max-width:550px;
+      font-size:1rem;
+    }
+
+    .hero-buttons{
+      display:flex;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      padding:15px 34px;
+      border:1px solid white;
+      border-radius:50px;
+      transition:0.4s ease;
+      font-weight:600;
+    }
+
+    .btn:hover{
+      background:white;
+      color:black;
+      transform:translateY(-4px);
+    }
+
+    .stats{
+      display:flex;
+      gap:45px;
+      margin-top:60px;
+      flex-wrap:wrap;
+    }
+
+    .stat h2{
+      font-size:2.2rem;
+      margin-bottom:8px;
+    }
+
+    .stat p{
+      margin:0;
+      color:#999;
+    }
+
+    .section-title{
+      text-align:center;
+      margin-bottom:70px;
+    }
+
+    .section-title h2{
+      font-size:3rem;
+      margin-bottom:15px;
+      text-transform:uppercase;
+    }
+
+    .section-title p{
+      color:#aaa;
+    }
+
+    .gallery{
+      background:#050505;
+    }
+
+    .gallery-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:25px;
+    }
+
+    .gallery-item{
+      overflow:hidden;
+      border-radius:28px;
+      border:1px solid rgba(255,255,255,0.08);
+      position:relative;
+    }
+
+    .gallery-item img{
+      height:450px;
+      object-fit:cover;
+      transition:0.6s ease;
+      filter:grayscale(100%);
+    }
+
+    .gallery-item:hover img{
+      transform:scale(1.08);
+      filter:grayscale(0%);
+    }
+
+    .about{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:70px;
+      align-items:center;
+    }
+
+    .about img{
+      border-radius:35px;
+      height:650px;
+      object-fit:cover;
+      filter:grayscale(100%);
+    }
+
+    .about-content h2{
+      font-size:3.5rem;
+      margin-bottom:25px;
+      text-transform:uppercase;
+    }
+
+    .about-content p{
+      color:#bbb;
+      line-height:2;
+      margin-bottom:20px;
+    }
+
+    .contact{
+      background:white;
+      color:black;
+      border-top-left-radius:60px;
+      border-top-right-radius:60px;
+    }
+
+    .contact-wrapper{
+      max-width:1000px;
+      margin:auto;
+      text-align:center;
+    }
+
+    .contact h2{
+      font-size:3rem;
+      margin-bottom:20px;
+      text-transform:uppercase;
+    }
+
+    .contact p{
+      color:#444;
+      line-height:1.8;
+    }
+
+    .contact-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:25px;
+      margin-top:50px;
+    }
+
+    .contact-card{
+      background:#f5f5f5;
+      padding:35px;
+      border-radius:30px;
+      transition:0.4s ease;
+    }
+
+    .contact-card:hover{
+      transform:translateY(-8px);
+    }
+
+    .contact-card h3{
+      margin-bottom:12px;
+      font-size:1.3rem;
+    }
+
+    footer{
+      text-align:center;
+      padding:30px;
+      color:#666;
+      background:#000;
+    }
+
+    .reveal{
+      opacity:0;
+      transform:translateY(60px);
+      transition:all 1s ease;
+    }
+
+    .reveal.active{
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    @keyframes fadeUp{
+      from{
+        opacity:0;
+        transform:translateY(50px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    @media(max-width:1000px){
+      .hero{
+        text-align:center;
+        justify-content:center;
+      }
+
+      .hero-content{
+        margin-top:100px;
+      }
+
+      .hero h1{
+        font-size:4rem;
+      }
+
+      .hero p{
+        margin:auto auto 40px;
+      }
+
+      .hero-buttons,
+      .stats{
+        justify-content:center;
+      }
+
+      .about{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media(max-width:700px){
+      .navbar{
+        padding:18px 6%;
+      }
+
+      .nav-links{
+        gap:15px;
+      }
+
+      .nav-links a{
+        font-size:0.8rem;
+      }
+
+      section{
+        padding:80px 6%;
+      }
+
+      .hero h1{
+        font-size:2.8rem;
+      }
+
+      .section-title h2,
+      .about-content h2,
+      .contact h2{
+        font-size:2.2rem;
+      }
+
+      .about img{
+        height:500px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="logo">Yadavhun Ji</div>
+
+    <div class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#gallery">Photos</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section class="hero" id="home">
+
+    <div class="hero-content">
+      <div class="hero-tag">YouTube Creator • Digital Influencer</div>
+
+      <h1>Yadavhun Ji</h1>
+
+      <p>
+        Cinematic creator building premium content experiences through lifestyle,
+        reels, fashion visuals, YouTube storytelling, and modern creator branding.
+        Growing a powerful digital audience with engaging visuals and authentic content.
+      </p>
+
+      <div class="hero-buttons">
+
+        <!-- YOUTUBE BUTTON -->
+        <a href="https://youtube.com/@yadavhun_ji?si=K2oCeHRWAzBL0DNx" class="btn" target="_blank">
+          Visit YouTube
+        </a>
+
+        <!--
+        ADD INSTAGRAM LINK HERE
+
+        Replace:
+        https://instagram.com/yourusername
+
+        with your Instagram profile
+        -->
+
+        <a href="https://instagram.com/yourusername" class="btn" target="_blank">
+          Instagram
+        </a>
+      </div>
+
+      <!-- CREATOR STATS -->
+      <div class="stats">
+        <div class="stat">
+          <h2>108K+</h2>
+          <p>YouTube Subscribers</p>
+        </div>
+
+        <div class="stat">
+          <h2>Millions</h2>
+          <p>Video Views</p>
+        </div>
+
+        <div class="stat">
+          <h2>Creator</h2>
+          <p>Premium Content</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY SECTION -->
+  <section class="gallery" id="gallery">
+
+    <div class="section-title reveal">
+      <h2>Featured Content</h2>
+      <p>Modern creator aesthetics and cinematic visual branding.</p>
+    </div>
+
+    <div class="gallery-grid">
+
+      <!--
+      ======================================
+      ADD YOUR REAL PHOTOS HERE
+      ======================================
+      -->
+
+      <div class="gallery-item reveal">
+        <img src="IMG_0403.JPG" alt="creator-image">
+      </div>
+
+     
+
+      <div class="gallery-item reveal">
+        <img src="IMG_0399.JPG" alt="creator-image">
+      </div>
+
+      <div class="gallery-item reveal">
+        <img src="IMG_0765.jpg" alt="creator-image">
+      </div>
+
+      <div class="gallery-item reveal">
+        <img src="IMG_0721.PNG" alt="creator-image">
+      </div>
+
+      <div class="gallery-item reveal">
+        <img src="assets/photo6.jpg" alt="creator-image">
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section class="about" id="about">
+
+    <!--
+    ======================================
+    ADD YOUR PORTRAIT IMAGE HERE
+    ======================================
+    -->
+
+    <div class="reveal">
+      <img src="assets/about.jpg" alt="about-image">
+    </div>
+
+    <div class="about-content reveal">
+      <h2>About Creator</h2>
+
+      <p>
+        Yadavhun Ji is a rising YouTube creator known for modern visuals,
+        engaging digital storytelling, and cinematic creator content.
+      </p>
+
+      <p>
+        Focused on building a premium creator identity through fashion,
+        lifestyle, reels, YouTube shorts, audience engagement, and visual creativity.
+      </p>
+
+      <p>
+        Available for collaborations, creator partnerships, brand campaigns,
+        influencer promotions, and digital projects.
+      </p>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section class="contact" id="contact">
+
+    <div class="contact-wrapper reveal">
+      <h2>Work With Me</h2>
+
+      <p>
+        For sponsorships, YouTube collaborations, paid promotions,
+        creator campaigns, or business inquiries.
+      </p>
+
+      <div class="contact-grid">
+
+        <!--
+        ADD GMAIL HERE
+        Replace:
+        yourmail@gmail.com
+        -->
+
+        <div class="contact-card">
+          <h3>Gmail</h3>
+          <p>yourmail@gmail.com</p>
+        </div>
+
+        <!--
+        ADD INSTAGRAM USERNAME HERE
+        -->
+
+        <div class="contact-card">
+          <h3>Instagram</h3>
+          <p>@yourusername</p>
+        </div>
+
+        <div class="contact-card">
+          <h3>YouTube</h3>
+          <p>@yadavhun_ji</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 Yadavhun Ji • Premium Creator Website
+  </footer>
+
+  <script>
+
+    // SMOOTH SCROLL REVEAL
+
+    const reveals = document.querySelectorAll('.reveal');
+
+    window.addEventListener('scroll', () => {
+      reveals.forEach((reveal) => {
+        const windowHeight = window.innerHeight;
+        const revealTop = reveal.getBoundingClientRect().top;
+        const revealPoint = 100;
+
+        if(revealTop < windowHeight - revealPoint){
+          reveal.classList.add('active');
+        }
+      });
+    });
+
+    // NAVBAR EFFECT
+
+    window.addEventListener('scroll', () => {
+      const navbar = document.querySelector('.navbar');
+
+      if(window.scrollY > 50){
+        navbar.style.background = 'rgba(0,0,0,0.9)';
+      }
+      else{
+        navbar.style.background = 'rgba(0,0,0,0.55)';
+      }
+    });
+
+  </script>
+</body>
+</html>
